@@ -10,33 +10,7 @@
 
     $app->get("/", function() use ($app){
         return $app['twig']->render('cars.twig');
-        //return "hello";
-        /*"
-        <!DOCTYPE html>
-            <html>
-            <head>
-                <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' type='text/css'>
-                <title>Find a Car</title>
-            </head>
-            <body>
-                <div class='container'>
-                    <h1>Find a Car!</h1>
-                    <form action='/view_car'>
-                        <div class='form-group'>
-                            <label for='price'>Enter Maximum Price:</label>
-                            <input id='price' name='price' class='form-control' type='number'>
-                            <label for='mileage'>Enter Max Miles:</label>
-                            <input id='mileage' name='mileage' class='form-control' type='number'>
-                        </div>
-
-                        <button type='submit' class='btn-success'>Submit</button>
-                    </form>
-                </div>
-            </body>
-            </html>
-            "*/
-        });
-
+        }); //OFFLOADS HTML HOME/FORMS ONTO TWIG
 
 
     $app->get("/view_car", function(){
@@ -51,7 +25,7 @@
             if ($car->worthBuying($_GET['price'], $_GET['mileage'])) {
                 array_push($cars_matching_search, $car);
             }
-        }
+        } //INSTANCIATES CARS, CREATES ARRAY FOR SEARCH RESULTS, RUNS CARS THROUGH worthBuying() AND POPULATES $cars_matching... WINNERS
 
         $output = "";
         foreach ($cars_matching_search as $car) {
@@ -69,25 +43,7 @@
            echo "<h2>Sorry, no cars match your search at this time.</h2>";
        }
 
-
-        return  "
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Your Car Dealership's Homepage</title>
-        </head>
-        <body>
-            <h1>Your Car Dealership</h1>
-            <ul>
-            $output
-            </ul>
-
-                </body>
-                </html>
-                ";
-
-            });
-
+       return $output;
 
     return $app;
 
