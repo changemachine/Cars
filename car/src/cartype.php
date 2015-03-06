@@ -42,6 +42,16 @@ class Car
     function getPrice()    {
         return $this->price;
     }
+
+    function save()
+    {
+        array_push($_SESSION['list_of_cars'], $this);
+    }
+
+    static function getAll()
+    {
+        return $_SESSION['list_of_cars'];
+    }
 }
 
 ?>

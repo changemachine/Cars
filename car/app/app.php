@@ -2,10 +2,11 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/cartype.php";
 
-    // session_start();
-    // if (empty($_SESSION['list_of_cars'])){
-    //     $_SESSION['list_of_cars'] = array();
-    // }
+    session_start();
+
+    if (empty($_SESSION['list_of_cars'])){
+        $_SESSION['list_of_cars'] = array();
+    }
 
     $app = new Silex\Application();
 
@@ -33,6 +34,16 @@
             }
         } //INSTANCIATES CARS, CREATES ARRAY FOR SEARCH RESULTS, RUNS CARS THROUGH worthBuying() AND POPULATES $cars_matching... WINNERS
 
+        //IN PROGRESS... watch the order on those attributes versus the form input order
+  //   $app->post("/cars", function() {
+  //     $car = new Car($_POST['type_car, value_car, miles_car, image_car']);
+  //     $task->save();
+  //     return "
+  //         <h1>You created a task!</h1>
+  //         <p>" . $task->getDescription() . "</p>
+  //         <p><a href='/'>View your list of things to do.</a></p>
+  //     ";
+  // });
        //return $app['twig']->render('results.twig', array('showcars' => $output));
        return $app['twig']->render('results.twig', array('showcars' => $cars_matching_search));
     });
