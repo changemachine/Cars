@@ -1,22 +1,41 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' type='text/css'> -->
-        <title>Find a Car</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' type='text/css'>        <title>Find a Car</title>
     </head>
     <body>
         <div class='container'>
             <h1>Find a Car!</h1>
-            <form action='/view_car'>
+            <form action='/results'>
                 <div class='form-group'>
                     <label for='price'>Enter Maximum Price:</label>
-                    <input id='price' name='price' class='form-control' type='number'>
+                    <input id='price' name='price' class='form-control' type='number' value='400000'>
                     <label for='mileage'>Enter Max Miles:</label>
-                    <input id='mileage' name='mileage' class='form-control' type='number'>
+                    <input id='mileage' name='mileage' class='form-control' type='number' value='400000'>
                 </div>
 
                 <button type='submit' class='btn-success'>Submit</button>
             </form>
+        </div><br>
+
+
+        <div class='container'>
+            <h3>Sell your car here!</h3>
+            <form action='/sell'>
+                <label for='s_price'>Enter Asking Price:</label>
+                <input id='s_price' name='s_price' class='form-control' type='number' value='400'>
+                <br />
+                <label for='s_mile'>Enter Mileage:</label>
+                <input id='s_mile' name='s_mile' class='form-control' type='number' value='400000'>
+                <br />
+                <label for='s_model'>Make and Model:</label>
+                <input id='s_model' name='s_model' class='form-control' type='text' value='AMC Gremlin'>
+                <br />
+                <label for='s_image'>Enter Image URL:</label>
+                <input id='s_image' name='s_image' class='form-control' type='text' value='http://s.hswstatic.com/gif/1970-1978-amc-gremlin-2.jpg'>
+                <br />
+                <button type='submit' class='btn-success'>Submit</button>
         </div>
+        </form>
     </body>
     </html>
